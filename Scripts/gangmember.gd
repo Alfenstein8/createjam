@@ -2,19 +2,18 @@ extends Node2D
 var target:Vector2
 @export var movement_speed = 30
 var building
-enum mv_state {TARGET, IDLE}
+enum mv_state {TARGET, IDLE, RUN}
 var state:mv_state = mv_state.TARGET
 var idle_radius:float = 10
 var idle_timer:float = 0
 var idle_time:float = 2
 var idle_target:Vector2
+var player_owner:Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match state:
@@ -25,10 +24,14 @@ func _process(delta):
 			
 	idle_timer -= delta
 
+func follow_owner():
+	pass
+
+func go_to(new_target):
+	target = new_target
+
 func move(delta):
 	position = position.move_toward(target, movement_speed*delta)
-	if(position.x > target.x-0.5 && position.x < target.x+0.5 && position.y > target.y-0.5 && position.y < target.y+0.5):
-		state = mv_state.IDLE
 
 func idle(delta):
 	if(idle_timer < 0):
