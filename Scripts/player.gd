@@ -5,6 +5,7 @@ extends Node2D
 # Random atm, should be changed when variable is known
 var screen_size
 signal hit
+var gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,4 +40,5 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	
 	
