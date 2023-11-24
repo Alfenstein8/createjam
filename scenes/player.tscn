@@ -10,6 +10,9 @@ position = Vector2(518, 314)
 script = ExtResource("1_mrbx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< HEAD
+texture = SubResource("GradientTexture2D_tyfqc")
+=======
 texture = ExtResource("2_nmku4")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -18,3 +21,4 @@ texture = ExtResource("2_nmku4")
 shape = SubResource("CircleShape2D_p2klo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+>>>>>>> c9c0891b99511294e8c2552728a9bb826bcff894

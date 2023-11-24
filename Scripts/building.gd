@@ -29,7 +29,8 @@ func spawner():
 		var spawn_pos:Vector2 = position+Vector2(randf_range(-spawn_radius,spawn_radius),randf_range(-spawn_radius,spawn_radius))
 		new_enemy.position = position
 		new_enemy.building = self
-		new_enemy.target = spawn_pos
+		new_enemy.go_to(spawn_pos)
 		new_enemy.player_owner = player_owner
+		new_enemy.state = new_enemy.mv_state.IDLE
 		gangmembers.append(new_enemy)
 		get_parent().add_child(new_enemy)
