@@ -2,8 +2,8 @@ extends Node2D
 var target:Vector2
 @export var movement_speed = 30
 var building
-enum mv_state {TARGET, IDLE}
-var state:mv_state = mv_state.IDLE
+enum mv_state {TARGET, IDLE, RUN}
+var state:mv_state = mv_state.TARGET
 var idle_radius:float = 10
 var idle_timer:float = 0
 var idle_time:float = 2
@@ -14,8 +14,6 @@ var player_owner:Node2D
 func _ready():
 	pass
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match state:
@@ -26,9 +24,11 @@ func _process(delta):
 			
 	idle_timer -= delta
 
+func follow_owner():
+	pass
+
 func go_to(new_target):
 	target = new_target
-	state = mv_state.TARGET
 
 func move(delta):
 	position = position.move_toward(target, movement_speed*delta)

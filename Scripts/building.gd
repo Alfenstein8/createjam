@@ -1,9 +1,10 @@
 extends Node2D
-var player_owner:Node2D = null
 var spawn_timer = 0
 var spawn_time = 3
 var enemy_scene
 var spawn_radius = 70
+var player_owner:Node2D
+var cost = 0
 var gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +17,9 @@ func _process(delta):
 	spawner()
 	
 	spawn_timer -= delta
+
+func buy(player:Node2D):
+	player_owner = player
 
 func spawner():
 	if(player_owner == null): return
