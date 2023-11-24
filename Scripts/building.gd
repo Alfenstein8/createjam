@@ -1,14 +1,14 @@
 extends Node2D
 var player = 1
 var spawn_timer = 0
-var spawn_time = 10
+var spawn_time = 3
 var enemy_scene
 var spawn_radius = 50
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	enemy_scene = preload("res://scenes/enemy.tscn")
+	enemy_scene = preload("res://scenes/gangmember.tscn")
 	pass # Replace with function body.
 
 

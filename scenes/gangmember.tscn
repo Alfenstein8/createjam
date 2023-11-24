@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx2or4u78jn62"]
+
+[ext_resource type="Script" path="res://Scripts/gangmember.gd" id="1_3bcnt"]
+[ext_resource type="Texture2D" uid="uid://csunh4bfunlhr" path="res://sprites/gangmember.png" id="1_e1ifn"]
+
+[node name="Gangmember" type="Node2D"]
+script = ExtResource("1_3bcnt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("1_e1ifn")
