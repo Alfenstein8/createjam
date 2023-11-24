@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckexs1ecgxuxq"
-path="res://.godot/imported/killerman.png-9933d3e6456b1559182004a2562c323e.ctex"
+uid="uid://bkri378hb036r"
+path="res://.godot/imported/1864053.png-a59854bbecbcd208aa6b4f6fea88811c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/killerman.png"
-dest_files=["res://.godot/imported/killerman.png-9933d3e6456b1559182004a2562c323e.ctex"]
+source_file="res://1864053.png"
+dest_files=["res://.godot/imported/1864053.png-a59854bbecbcd208aa6b4f6fea88811c.ctex"]
 
 [params]
 

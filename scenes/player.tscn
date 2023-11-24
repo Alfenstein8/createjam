@@ -1,15 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://7otgramulw64"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrbx4"]
+[ext_resource type="Texture2D" uid="uid://bkri378hb036r" path="res://1864053.png" id="2_nmku4"]
 
-[sub_resource type="Gradient" id="Gradient_ggli0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tyfqc"]
-gradient = SubResource("Gradient_ggli0")
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2klo"]
 
 [node name="Player" type="Node2D"]
 position = Vector2(518, 314)
 script = ExtResource("1_mrbx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< HEAD
 texture = SubResource("GradientTexture2D_tyfqc")
+=======
+texture = ExtResource("2_nmku4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p2klo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+>>>>>>> c9c0891b99511294e8c2552728a9bb826bcff894
