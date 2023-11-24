@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7otgramulw64"]
+[gd_scene load_steps=4 format=3 uid="uid://7otgramulw64"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrbx4"]
 
-[sub_resource type="Gradient" id="Gradient_ggli0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tyfqc"]
-gradient = SubResource("Gradient_ggli0")
+[sub_resource type="ImageTexture" id="ImageTexture_ix1vb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2klo"]
 
@@ -14,7 +11,8 @@ position = Vector2(518, 314)
 script = ExtResource("1_mrbx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_tyfqc")
+position = Vector2(3, -6)
+texture = SubResource("ImageTexture_ix1vb")
 
 [node name="Area2D" type="Area2D" parent="."]
 

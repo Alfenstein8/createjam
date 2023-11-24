@@ -10,9 +10,6 @@ signal hit
 func _ready():
 	screen_size = get_viewport_rect().size
 	
-	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -24,14 +21,9 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("p1_up"):
 		velocity.y -= 1
-		
-	print(Input.is_action_pressed("p1_down"))
-	print(Input.is_action_pressed("p1_left"))
-	print(Input.is_action_pressed("p1_up"))
-	print(Input.is_action_pressed("p1_right"))
 	
 	position += velocity * delta * speed
-	#position = position.clamp(Vector2.ZERO, screen_size)
+	position = position.clamp(Vector2.ZERO, screen_size)
 	
 func _on_area_2d_body_entered(body):
 	pass # Replace with function body.
