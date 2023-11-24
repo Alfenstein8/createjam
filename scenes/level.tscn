@@ -5,5 +5,7 @@
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pvbff")]
+position = Vector2(289, 260)
 
 [node name="Player2" parent="." instance=ExtResource("1_pvbff")]
+position = Vector2(523, 273)

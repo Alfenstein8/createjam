@@ -2,19 +2,14 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrbx4"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_ix1vb"]
+[sub_resource type="Gradient" id="Gradient_ggli0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tyfqc"]
+gradient = SubResource("Gradient_ggli0")
 
 [node name="Player" type="Node2D"]
 position = Vector2(518, 314)
 script = ExtResource("1_mrbx4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -6)
-texture = SubResource("ImageTexture_ix1vb")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_p2klo")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+texture = SubResource("GradientTexture2D_tyfqc")
