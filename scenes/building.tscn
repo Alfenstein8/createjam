@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7qu7xoo0f1rt"]
+[gd_scene load_steps=3 format=3 uid="uid://c7qu7xoo0f1rt"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feo1i"]
+[ext_resource type="Script" path="res://Scripts/building.gd" id="1_nxnup"]
+[ext_resource type="Texture2D" uid="uid://v7uihyojem0o" path="res://sprites/building.png" id="2_a5nmn"]
 
 [node name="Building" type="Node2D"]
+position = Vector2(515, 264)
+script = ExtResource("1_nxnup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_feo1i")
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("2_a5nmn")
