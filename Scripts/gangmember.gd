@@ -20,6 +20,10 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	idle_timer -= delta
+	if (!nearby_gangmembers.is_empty()):
+		move(nearby_gangmembers[0].position,movement_speed,delta)
+		return
 	match state:
 		mv_state.TARGET:
 			move(target,movement_speed,delta);
@@ -29,7 +33,9 @@ func _process(delta):
 			move(position+run_dir,run_speed,delta)
 		mv_state.FOLLOW:
 			move(player_follow.position,movement_speed,delta)
-	idle_timer -= delta
+	
+	
+		
 
 func run(dir:Vector2):
 	state = mv_state.RUN
@@ -51,3 +57,16 @@ func follow_player(player):
 	player_follow = player
 	state = mv_state.FOLLOW
 	
+
+
+func _on_area_2d_body_entered(body:Node2D):
+	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+		return
+	nearby_gangmembers.append(body)
+
+
+func _on_area_2d_body_exited(body):
+	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+		return
+	var gangmember_index = nearby_gangmembers.find(body)
+	nearby_gangmembers.pop_at(gangmember_index)
