@@ -9,23 +9,28 @@ signal hit
 var gangmembers = []
 var buildings_in_range = []
 var bullet = preload("res://scenes/bullet.tscn")
-
+var velocity
+var faceing_dir = Vector2.LEFT
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO # The player's movement vector.
 	if player_num == 1:
 		if Input.is_action_pressed("p1_right"):
 			velocity.x += 1
+			faceing_dir = Vector2.RIGHT
 		if Input.is_action_pressed("p1_left"):
 			velocity.x -= 1
+			faceing_dir = Vector2.LEFT
 		if Input.is_action_pressed("p1_down"):
 			velocity.y += 1
+			faceing_dir = Vector2.DOWN
 		if Input.is_action_pressed("p1_up"):
 			velocity.y -= 1
+			faceing_dir = Vector2.UP
 		if Input.is_action_just_pressed("p1_shoot"):
 			var pop_gang = gangmembers.pop_back()
 			if pop_gang != null:
@@ -42,12 +47,16 @@ func _process(delta):
 	if player_num == 2:
 		if Input.is_action_pressed("p2_right"):
 			velocity.x += 1
+			faceing_dir = Vector2.RIGHT
 		if Input.is_action_pressed("p2_left"):
 			velocity.x -= 1
+			faceing_dir = Vector2.LEFT
 		if Input.is_action_pressed("p2_down"):
 			velocity.y += 1
+			faceing_dir = Vector2.DOWN
 		if Input.is_action_pressed("p2_up"):
 			velocity.y -= 1
+			faceing_dir = Vector2.UP
 		if Input.is_action_just_pressed("p2_shoot"):
 			var pop_gang = gangmembers.pop_back()
 			if pop_gang != null:
@@ -90,6 +99,7 @@ func shoot():
 	var new_bullet = bullet.instantiate()
 	new_bullet.player_owner = self
 	new_bullet.position = position
+	new_bullet.move_dir = faceing_dir
 	get_parent().add_child(new_bullet)
 	
 func get_nearest_node(array):
