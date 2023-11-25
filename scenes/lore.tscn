@@ -27,10 +27,10 @@ autowrap_mode = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 20.0
-offset_right = 149.0
-offset_bottom = 90.0
-text = "GO BACK!!!!111!!!"
+offset_left = 892.0
+offset_top = 51.0
+offset_right = 1027.0
+offset_bottom = 121.0
+text = "GANG"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
