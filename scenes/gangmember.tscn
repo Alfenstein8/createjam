@@ -22,6 +22,7 @@ shape = SubResource("CircleShape2D_5i7jm")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.445, 1.445)
 shape = SubResource("CircleShape2D_apiwx")
 
 [node name="hitbox" type="Area2D" parent="."]

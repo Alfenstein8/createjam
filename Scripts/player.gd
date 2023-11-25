@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 # Speed of the player, pixels moved
 @export var speed = 400

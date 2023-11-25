@@ -22,7 +22,7 @@ func _ready():
 func _process(delta):
 	idle_timer -= delta
 	if (!nearby_gangmembers.is_empty()):
-		move(nearby_gangmembers[0].position,movement_speed,delta)
+		move(nearby_gangmembers[0].position,run_speed,delta)
 		return
 	match state:
 		mv_state.TARGET:
@@ -59,21 +59,36 @@ func follow_player(player):
 	
 
 
-func _on_area_2d_body_entered(body:Node2D):
-	if(!body.is_in_group("gangmember") && !body.is_in_group("player") || body.player_owner == player_owner):
+func _on_area_2d_body_entered(body):
+	if(check_body(body)):
 		return
 	nearby_gangmembers.append(body)
 
 
 func _on_area_2d_body_exited(body):
-	if(!body.is_in_group("gangmember") && !body.is_in_group("player") || body.player_owner == player_owner):
+	
+	if(check_body(body)):
 		return
 	var gangmember_index = nearby_gangmembers.find(body)
 	nearby_gangmembers.pop_at(gangmember_index)
 
 
 func _on_hitbox_body_entered(body):
-	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+	if(!body.is_in_group("gangmember")):
+		return
+	if(body.player_owner == player_owner): 
 		return
 	body.queue_free()
 	queue_free()
+
+func check_body(body):
+	if(!body.is_in_group("player") && !body.is_in_group("gangmember")):
+		return true
+	if(body.is_in_group("gangmember")):
+		if(body.player_owner == player_owner):
+			return true
+	if(body.is_in_group("player")):
+		if(body == player_owner):
+			return true
+			
+	return false
