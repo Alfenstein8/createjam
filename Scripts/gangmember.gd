@@ -60,13 +60,20 @@ func follow_player(player):
 
 
 func _on_area_2d_body_entered(body:Node2D):
-	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+	if(!body.is_in_group("gangmember") && !body.is_in_group("player") || body.player_owner == player_owner):
 		return
 	nearby_gangmembers.append(body)
 
 
 func _on_area_2d_body_exited(body):
-	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+	if(!body.is_in_group("gangmember") && !body.is_in_group("player") || body.player_owner == player_owner):
 		return
 	var gangmember_index = nearby_gangmembers.find(body)
 	nearby_gangmembers.pop_at(gangmember_index)
+
+
+func _on_hitbox_body_entered(body):
+	if(!body.is_in_group("gangmember") || body.player_owner == player_owner):
+		return
+	body.queue_free()
+	queue_free()
