@@ -1,7 +1,7 @@
 extends Node2D
 
 # Speed of the player, pixels moved
-@export var speed = 4000
+@export var speed = 400
 # Random atm, should be changed when variable is known
 var screen_size
 signal hit
@@ -30,6 +30,8 @@ func _on_area_2d_body_entered(body):
 	pass # Replace with function body.
 	
 func _on_body_entered(body):
+	if (!body.is_in_group("gangmember") || body.player_owner == self):
+		return
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
@@ -40,5 +42,6 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	
 	
 	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx2or4u78jn62"]
+[gd_scene load_steps=3 format=3 uid="uid://b85bnli78i1tm"]
 
 [ext_resource type="Script" path="res://Scripts/gangmember.gd" id="1_3bcnt"]
 [ext_resource type="Texture2D" uid="uid://csunh4bfunlhr" path="res://sprites/gangmember.png" id="1_e1ifn"]
 
-[node name="Gangmember" type="Node2D"]
+[node name="Gangmember" type="Node2D" groups=["gangmember"]]
 script = ExtResource("1_3bcnt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
