@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://gdl00x03nvju"]
+[gd_scene load_steps=3 format=3 uid="uid://gdl00x03nvju"]
 
 [ext_resource type="PackedScene" uid="uid://7otgramulw64" path="res://scenes/player.tscn" id="1_pvbff"]
+[ext_resource type="PackedScene" uid="uid://c7qu7xoo0f1rt" path="res://scenes/building.tscn" id="2_yljij"]
 
 [node name="Level" type="Node2D"]
 
@@ -9,3 +10,43 @@ position = Vector2(289, 260)
 
 [node name="Player2" parent="." instance=ExtResource("1_pvbff")]
 position = Vector2(523, 273)
+
+[node name="buildings" type="Node2D" parent="."]
+
+[node name="Building" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(614, 299)
+
+[node name="Building2" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(815, 283)
+
+[node name="Building3" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(306, 509)
+
+[node name="Building4" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(617, 475)
+
+[node name="Building5" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(148, 542)
+
+[node name="Building6" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(192, 368)
+
+[node name="Building7" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(347, 327)
+
+[node name="Building8" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(390, 154)
+
+[node name="Building9" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
+position = Vector2(1038, 560)
+player_owner = NodePath("../../Player")
+
+[node name="Building10" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(807, 106)
+
+[node name="Building11" parent="buildings" instance=ExtResource("2_yljij")]
+position = Vector2(979, 353)
+
+[node name="Building12" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
+position = Vector2(75, 74)
+player_owner = NodePath("../../Player2")

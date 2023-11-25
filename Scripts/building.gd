@@ -3,7 +3,7 @@ var spawn_timer = 0
 var spawn_time = 3
 var enemy_scene
 var spawn_radius = 70
-var player_owner:Node2D
+@export var player_owner:Node2D
 var cost = 0
 var gangmembers = []
 
