@@ -25,6 +25,7 @@ offset_left = 122.0
 offset_top = 294.0
 offset_right = 254.0
 offset_bottom = 353.0
+button_mask = 7
 text = "GANG"
 
 [node name="quit" type="Button" parent="."]
@@ -64,7 +65,9 @@ offset_top = 433.0
 offset_right = 243.09
 offset_bottom = 429.272
 rotation = 0.523598
-text = "You have one click"
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0, 1)
+theme_override_font_sizes/font_size = 23
+text = "You have only one click"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 1
@@ -146,6 +149,18 @@ offset_right = 1386.66
 offset_bottom = 186.7
 rotation = -4.71238
 text = "Recruit at building"
+
+[node name="Label9" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 32.0
+offset_top = 355.0
+offset_right = 279.665
+offset_bottom = 376.7
+rotation = -6.28318
+text = "You can middleclick this button"
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -13,12 +13,12 @@ script = ExtResource("1_fma0o")
 
 [node name="Winning label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 291.0
-offset_right = 801.0
-offset_bottom = 363.0
+offset_left = 252.0
+offset_top = 271.0
+offset_right = 812.0
+offset_bottom = 343.0
 theme_override_font_sizes/font_size = 50
-text = "Rex takes the city"
+text = "Pregnant takes the city"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
