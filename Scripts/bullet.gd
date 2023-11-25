@@ -12,6 +12,12 @@ func _process(delta):
 	position += transform.x * speed * delta
 
 func _on_bullet_body_entered(body):
+	if(body.is_in_group("player")):
+		if(body == player_owner):
+			return
+		body.hit.emit()
+		body.queue_free()
+		queue_free()
 	if body.is_in_group("gangmember"):
 		body.queue_free()
 		queue_free()
