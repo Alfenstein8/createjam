@@ -6,10 +6,10 @@
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pvbff")]
-position = Vector2(289, 260)
+position = Vector2(36, 40)
 
 [node name="Player2" parent="." instance=ExtResource("1_pvbff")]
-position = Vector2(523, 273)
+position = Vector2(1097, 589)
 player_num = 2
 
 [node name="buildings" type="Node2D" parent="."]
@@ -40,7 +40,7 @@ position = Vector2(390, 154)
 
 [node name="Building9" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
 position = Vector2(1038, 560)
-player_owner = NodePath("../../Player")
+player_owner = NodePath("../../Player2")
 
 [node name="Building10" parent="buildings" instance=ExtResource("2_yljij")]
 position = Vector2(807, 106)
@@ -49,5 +49,5 @@ position = Vector2(807, 106)
 position = Vector2(979, 353)
 
 [node name="Building12" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
-position = Vector2(75, 74)
-player_owner = NodePath("../../Player2")
+position = Vector2(106, 91)
+player_owner = NodePath("../../Player")
