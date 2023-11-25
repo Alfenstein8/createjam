@@ -27,15 +27,14 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
 func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
-	
-func _on_body_entered(body):
+	print("hej")
 	if (!body.is_in_group("gangmember") || body.player_owner == self):
 		return
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
+	#$CollisionShape2D.set_deferred("disabled", true)
+	
 	
 	#Function to reset the players position after the game ends. Not sure if good for p2 as well?
 func start(pos):
