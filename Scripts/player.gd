@@ -36,7 +36,7 @@ func _on_area_2d_body_entered(body):
 	# Must be deferred as we can't change physics properties on a physics callback.
 	#$CollisionShape2D.set_deferred("disabled", true)
 	
-if (Input.is_action_pressed("p1_buy" && !body.is_in_group("building")):
+if (Input.is_action_pressed("p1_interact" && !body.is_in_group("building")):
 		return
 	buildings_in_range.append()
 	buildings_in_range.is_empty()
