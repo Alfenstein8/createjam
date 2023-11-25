@@ -44,7 +44,9 @@ func set_gangmember(gangmember:Node2D):
 	gangmember.player_owner = player_owner
 	gangmember.state = gangmember.mv_state.IDLE
 
-func pick_up_gangmemers(player:Node2D):
+func pick_up_gangmembers(player:Node2D):
+	if (gangmembers.is_empty() == null || player != player_owner):
+		return
 	var moved_gangmember = gangmembers.pop_back()
 	player.gangmembers.append(moved_gangmember)
 	moved_gangmember.follow_player(player)

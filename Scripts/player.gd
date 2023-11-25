@@ -26,8 +26,11 @@ func _process(delta):
 	if (Input.is_action_pressed("p1_interact")):
 		if (!buildings_in_range.is_empty()):
 			buildings_in_range[0].buy(self)
-			print("hej igen")
-	
+	if (Input.is_action_pressed("p1_follow")):
+		if (!buildings_in_range.is_empty()):
+			buildings_in_range[0].pick_up_gangmembers(self)
+
+
 	position += velocity * delta * speed
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
