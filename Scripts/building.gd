@@ -4,7 +4,7 @@ var spawn_timer = 0
 var enemy_scene
 var spawn_radius = 70
 @export var player_owner:Node2D
-@export var cost = 10
+@export var cost = 0
 var gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +19,7 @@ func _process(delta):
 	spawn_timer -= delta
 
 func buy(player:Node2D):
-	if(player.gangmembers.count < cost): return false
+	if(player.gangmembers.size() < cost): return false
 	player_owner = player
 	for i in cost:
 		var new_gangmember = player.gangmembers.pop_back()

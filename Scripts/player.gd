@@ -23,12 +23,15 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("p1_up"):
 		velocity.y -= 1
+	if (Input.is_action_pressed("p1_interact")):
+		if (!buildings_in_range.is_empty()):
+			buildings_in_range[0].buy(self)
+			print("hej igen")
 	
 	position += velocity * delta * speed
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
 func _on_area_2d_body_entered(body):
-	print("hej")
 	if (!body.is_in_group("gangmember") || body.player_owner == self):
 		return
 	hide() # Player disappears after being hit.
@@ -36,18 +39,19 @@ func _on_area_2d_body_entered(body):
 	# Must be deferred as we can't change physics properties on a physics callback.
 	#$CollisionShape2D.set_deferred("disabled", true)
 	
-if (Input.is_action_pressed("p1_interact" && !body.is_in_group("building")):
-		return
-	buildings_in_range.append()
-	buildings_in_range.is_empty()
-	
-	
-
 	#Function to reset the players position after the game ends. Not sure if good for p2 as well?
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 	
-	
+func _on_interact_range_entered(body):
+	if (body.is_in_group("building") && body.player_owner != self):
+		buildings_in_range.append(body)
+
+
+func _on_interact_range_body_exited(body):
+	if (body.is_in_group("building")):
+		var building_index = buildings_in_range.find(body)
+		buildings_in_range.pop_at(building_index)
 	
