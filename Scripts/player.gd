@@ -33,10 +33,12 @@ func _process(delta):
 				shoot()
 		if Input.is_action_pressed("p1_interact"):
 			if (!buildings_in_range.is_empty()):
-				buildings_in_range[0].buy(self)
+				var building = get_nearest_node(buildings_in_range)
+				if building.player_owner != self:
+					building.buy(self)
 		if Input.is_action_pressed("p1_follow"):
 			if !buildings_in_range.is_empty():
-				buildings_in_range[0].pick_up_gangmembers(self)
+				get_nearest_node(buildings_in_range).pick_up_gangmembers(self)
 	if player_num == 2:
 		if Input.is_action_pressed("p2_right"):
 			velocity.x += 1
@@ -53,10 +55,10 @@ func _process(delta):
 				shoot()
 		if Input.is_action_pressed("p2_interact"):
 			if (!buildings_in_range.is_empty()):
-				buildings_in_range[0].buy(self)
+				get_nearest_node(buildings_in_range).buy(self)
 		if Input.is_action_pressed("p2_follow"):
 			if !buildings_in_range.is_empty():
-				buildings_in_range[0].pick_up_gangmembers(self)
+				get_nearest_node(buildings_in_range).pick_up_gangmembers(self)
 
 	position += velocity * delta * speed
 	position = position.clamp(Vector2.ZERO, screen_size)
@@ -76,7 +78,7 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 	
 func _on_interact_range_entered(body):
-	if (body.is_in_group("building") && body.player_owner != self):
+	if (body.is_in_group("building")):
 		buildings_in_range.append(body)
 
 func _on_interact_range_body_exited(body):
@@ -90,4 +92,11 @@ func shoot():
 	new_bullet.position = position
 	get_parent().add_child(new_bullet)
 	
-	
+func get_nearest_node(array):
+	var distance = 99999999
+	var nearest_node
+	for node in array:
+		if position.distance_to(node.position) < distance:
+			nearest_node = node
+			distance = position.distance_to(node.position)
+	return nearest_node

@@ -4,7 +4,7 @@ var spawn_timer = 0
 var enemy_scene
 var spawn_radius = 70
 @export var player_owner:Node2D
-@export var cost = 0
+@export var cost = 10
 var gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
@@ -23,8 +23,7 @@ func buy(player:Node2D):
 	player_owner = player
 	for i in cost:
 		var new_gangmember = player.gangmembers.pop_back()
-		gangmembers.append(new_gangmember)
-		set_gangmember(new_gangmember)
+		new_gangmember.queue_free()
 	return true
 
 func spawner():
@@ -44,9 +43,9 @@ func set_gangmember(gangmember:Node2D):
 	gangmember.player_owner = player_owner
 	gangmember.state = gangmember.mv_state.IDLE
 
-func pick_up_gangmembers(player:Node2D):
+func pick_up_gangmembers(player):
 	if (gangmembers.is_empty() == true || player != player_owner):
 		return
 	var moved_gangmember = gangmembers.pop_back()
-	player.gangmembers.append(moved_gangmember)
 	moved_gangmember.follow_player(player)
+	player.gangmembers.append(moved_gangmember)
