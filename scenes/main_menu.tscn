@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://by6qhk48tu5y4"]
+[gd_scene load_steps=3 format=3 uid="uid://by6qhk48tu5y4"]
 
 [ext_resource type="Script" path="res://Scripts/Main menu.gd" id="1_q04rq"]
+[ext_resource type="Texture2D" uid="uid://dc0w4awad1ggg" path="res://sprites/inro.jpeg" id="2_y32ix"]
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -11,20 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q04rq")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(562, 317)
+scale = Vector2(0.581264, 0.581264)
+texture = ExtResource("2_y32ix")
+region_enabled = true
+region_rect = Rect2(0, 346.199, 886.712, 911.4)
+
 [node name="start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 526.0
-offset_top = 257.0
-offset_right = 658.0
-offset_bottom = 316.0
+offset_left = 122.0
+offset_top = 294.0
+offset_right = 254.0
+offset_bottom = 353.0
 text = "GANG"
 
 [node name="quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 346.0
-offset_right = 1057.0
-offset_bottom = 592.0
+offset_left = 854.0
+offset_top = 507.0
+offset_right = 1124.0
+offset_bottom = 629.0
 text = "Give up"
 
 [node name="Label" type="Label" parent="."]
@@ -39,14 +47,106 @@ offset_bottom = 124.272
 rotation = -0.785397
 text = "This town is not big"
 
-[node name="RichTextLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 171.0
-offset_right = 1106.0
-offset_bottom = 243.0
-theme_override_font_sizes/font_size = 50
-text = "Pregnant Elsa makeup: The showdown !!1!!1!"
+[node name="lore" type="Button" parent="."]
+offset_left = 30.0
+offset_top = 50.0
+offset_right = 162.0
+offset_bottom = 109.0
+text = "Important lore"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 103.0
+offset_top = 433.0
+offset_right = 243.09
+offset_bottom = 429.272
+rotation = 0.523598
+text = "You have one click"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 914.0
+offset_top = 293.0
+offset_right = 1054.09
+offset_bottom = 393.272
+rotation = 0.523598
+text = "quit -- ALT + F4
+player 1:
+move -- wasd
+shoot -- R
+pickup -- F
+Recruit -- E"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 159.0
+offset_top = 144.0
+offset_right = 299.09
+offset_bottom = 244.272
+rotation = -0.261799
+text = "player 2:
+move -- arrows
+shoot -- .
+pickup -- L
+Recruit -- ,"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 493.0
+offset_top = 592.0
+offset_right = 633.09
+offset_bottom = 692.272
+text = "quit -- ALT + F4"
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 315.0
+offset_top = 633.0
+offset_right = 449.088
+offset_bottom = 627.272
+rotation = -2.87979
+text = "You need 10 gangmember for recruit"
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 843.0
+offset_top = 203.0
+offset_right = 977.088
+offset_bottom = 199.272
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Read ALL!!!!"
+
+[node name="Label8" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 1139.0
+offset_top = 165.0
+offset_right = 1386.66
+offset_bottom = 186.7
+rotation = -4.71238
+text = "Recruit at building"
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="lore" to="." method="_on_lore_pressed"]

@@ -1,20 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://hp4p6rxjtpih"]
+[gd_scene load_steps=5 format=3 uid="uid://hp4p6rxjtpih"]
 
-[ext_resource type="Texture2D" uid="uid://csunh4bfunlhr" path="res://sprites/gangmember.png" id="1_3wumk"]
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_ediou"]
+[ext_resource type="Texture2D" uid="uid://d0ftgm7lggu42" path="res://sprites/rexgang.jpeg" id="2_63f06"]
+[ext_resource type="Texture2D" uid="uid://cxb5jx8uwtgki" path="res://sprites/rumlegang.jpeg" id="3_8d0po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kh1q"]
 
 [node name="bullet" type="Area2D"]
 script = ExtResource("1_ediou")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.791416, -0.6775)
-scale = Vector2(0.0569985, 0.0569985)
-texture = ExtResource("1_3wumk")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_7kh1q")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="rex" type="Sprite2D" parent="sprites"]
+position = Vector2(0.791416, -0.6775)
+scale = Vector2(0.0569985, 0.0569985)
+texture = ExtResource("2_63f06")
+region_enabled = true
+region_rect = Rect2(345.568, 285.439, 592.41, 1082.29)
+
+[node name="rumle" type="Sprite2D" parent="sprites"]
+position = Vector2(0.791416, -0.6775)
+scale = Vector2(0.0569985, 0.0569985)
+texture = ExtResource("3_8d0po")
+region_enabled = true
+region_rect = Rect2(244.935, 163.919, 451.902, 1124.06)
 
 [connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]

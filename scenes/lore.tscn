@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkfmy026uodhn"]
+
+[ext_resource type="Script" path="res://Scripts/lore.gd" id="1_kqa3n"]
+
+[node name="Lore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqa3n")
+
+[node name="Lore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 192.0
+offset_right = 1111.0
+offset_bottom = 611.0
+theme_override_colors/font_color = Color(0.964706, 0.945098, 0.909804, 1)
+theme_override_font_sizes/font_size = 25
+text = "It all began when an old disabled man named Rex, wanted to fight the youth. Rex’s happiness was always held back by the thought of the young generation, especially Rumleskaft and his friends. He knew he couldn’t win on his own. Thats why he decided to find people just like him, who could join him on his journey. Rex tried, but with no luck. 
+He knew what he had to do. 
+Rex went to a homeless shelter for people with disabilities, and forced them to join him against their will. 
+What Rex did might sound bad, but to be fair. Rumleskaft and his friends stole candy once."
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 20.0
+offset_right = 149.0
+offset_bottom = 90.0
+text = "GO BACK!!!!111!!!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

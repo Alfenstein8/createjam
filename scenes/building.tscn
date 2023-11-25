@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7qu7xoo0f1rt"]
+[gd_scene load_steps=7 format=3 uid="uid://c7qu7xoo0f1rt"]
 
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_nxnup"]
-[ext_resource type="Texture2D" uid="uid://v7uihyojem0o" path="res://sprites/building.png" id="2_a5nmn"]
+[ext_resource type="Texture2D" uid="uid://ydsicw3ty3q2" path="res://sprites/building1.jpeg" id="2_cs5t2"]
+[ext_resource type="Texture2D" uid="uid://c8eo4jko1hrvw" path="res://sprites/building2.jpeg" id="3_hv7p0"]
+[ext_resource type="Texture2D" uid="uid://dvv363is6ylce" path="res://sprites/building3.jpeg" id="4_imr3b"]
+[ext_resource type="Texture2D" uid="uid://cs17vk87iiyo2" path="res://sprites/building4.jpeg" id="5_ru1h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc4lc"]
 size = Vector2(79, 73)
@@ -10,10 +13,36 @@ size = Vector2(79, 73)
 position = Vector2(515, 264)
 script = ExtResource("1_nxnup")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.103004, 0.103004)
-texture = ExtResource("2_a5nmn")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_uc4lc")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("2_cs5t2")
+region_enabled = true
+region_rect = Rect2(144.3, 566.454, 892.412, 622.79)
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("3_hv7p0")
+region_enabled = true
+region_rect = Rect2(34.1726, 361.389, 945.578, 1063.3)
+
+[node name="Sprite2D3" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("4_imr3b")
+region_enabled = true
+region_rect = Rect2(199.995, 191.769, 1367.1, 877.223)
+
+[node name="Sprite2D4" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("5_ru1h5")
+region_enabled = true
+region_rect = Rect2(125.313, 509.491, 1067.1, 763.297)

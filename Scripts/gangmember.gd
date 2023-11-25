@@ -16,8 +16,12 @@ var nearby_gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(player_owner.player_num == 1):
-		$Sprite2D.modulate = Color(0.4, 0.4, 0.8, 1)
+	if(player_owner.player_num == 2):
+		$Node2D/rex.show()
+		$Node2D/rumle.hide()
+	else:
+		$Node2D/rex.hide()
+		$Node2D/rumle.show()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -14,7 +14,12 @@ var faceing_dir = Vector2.LEFT
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	
+	if player_num == 2:
+		$Sprites/rex.show()
+		$Sprites/rumle.hide()
+	else:
+		$Sprites/rex.hide()
+		$Sprites/rumle.show()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	velocity = Vector2.ZERO # The player's movement vector.

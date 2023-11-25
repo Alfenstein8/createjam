@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b85bnli78i1tm"]
+[gd_scene load_steps=6 format=3 uid="uid://b85bnli78i1tm"]
 
 [ext_resource type="Script" path="res://Scripts/gangmember.gd" id="1_3bcnt"]
-[ext_resource type="Texture2D" uid="uid://csunh4bfunlhr" path="res://sprites/gangmember.png" id="1_e1ifn"]
+[ext_resource type="Texture2D" uid="uid://d0ftgm7lggu42" path="res://sprites/rexgang.jpeg" id="2_yf0wa"]
+[ext_resource type="Texture2D" uid="uid://cxb5jx8uwtgki" path="res://sprites/rumlegang.jpeg" id="3_myx8o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5i7jm"]
 
@@ -10,10 +11,6 @@ radius = 65.0077
 
 [node name="Gangmember" type="StaticBody2D" groups=["gangmember"]]
 script = ExtResource("1_3bcnt")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.055, 0.055)
-texture = ExtResource("1_e1ifn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.2, 2.2)
@@ -30,6 +27,20 @@ shape = SubResource("CircleShape2D_apiwx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 scale = Vector2(0.285, 0.285)
 shape = SubResource("CircleShape2D_apiwx")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="rex" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("2_yf0wa")
+region_enabled = true
+region_rect = Rect2(345.568, 262.654, 592.41, 1127.86)
+
+[node name="rumle" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("3_myx8o")
+region_enabled = true
+region_rect = Rect2(225.947, 137.336, 478.485, 1143.05)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

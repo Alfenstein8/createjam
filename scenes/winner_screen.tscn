@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cegdynhd74yyo"]
+[gd_scene load_steps=2 format=3 uid="uid://cegdynhd74yyo"]
+
+[ext_resource type="Script" path="res://Scripts/Player_2_winner_screen.gd" id="1_fma0o"]
 
 [node name="Player 1 Winner screen" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fma0o")
 
 [node name="Winning label" type="Label" parent="."]
 layout_mode = 0
@@ -16,3 +19,13 @@ offset_right = 801.0
 offset_bottom = 363.0
 theme_override_font_sizes/font_size = 50
 text = "Rex takes the city"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 405.0
+offset_right = 340.0
+offset_bottom = 488.0
+text = "WOW try again?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

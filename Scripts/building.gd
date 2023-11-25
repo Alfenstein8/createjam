@@ -10,6 +10,7 @@ var gangmembers = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	enemy_scene = preload("res://scenes/gangmember.tscn")
+	$sprites.get_child(randi_range(0,3)).show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,5 +48,7 @@ func pick_up_gangmembers(player):
 	if (gangmembers.is_empty() == true || player != player_owner):
 		return
 	var moved_gangmember = gangmembers.pop_back()
+	if(moved_gangmember == null):
+		return
 	moved_gangmember.follow_player(player)
 	player.gangmembers.append(moved_gangmember)

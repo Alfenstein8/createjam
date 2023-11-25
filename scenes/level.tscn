@@ -7,38 +7,31 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_cva03")
 
-[node name="Player" parent="." instance=ExtResource("1_pvbff")]
-position = Vector2(36, 40)
-
-[node name="Player2" parent="." instance=ExtResource("1_pvbff")]
-position = Vector2(1097, 589)
-player_num = 2
-
 [node name="buildings" type="Node2D" parent="."]
 
 [node name="Building" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(614, 299)
+position = Vector2(621, 251)
 
 [node name="Building2" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(815, 283)
+position = Vector2(819, 402)
 
 [node name="Building3" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(306, 509)
+position = Vector2(424, 545)
 
 [node name="Building4" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(617, 475)
+position = Vector2(663, 548)
 
 [node name="Building5" parent="buildings" instance=ExtResource("2_yljij")]
 position = Vector2(148, 542)
 
 [node name="Building6" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(192, 368)
+position = Vector2(169, 309)
 
 [node name="Building7" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(347, 327)
+position = Vector2(420, 329)
 
 [node name="Building8" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(390, 154)
+position = Vector2(301, 133)
 
 [node name="Building9" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
 position = Vector2(1038, 560)
@@ -48,11 +41,18 @@ player_owner = NodePath("../../Player2")
 position = Vector2(807, 106)
 
 [node name="Building11" parent="buildings" instance=ExtResource("2_yljij")]
-position = Vector2(979, 353)
+position = Vector2(1013, 259)
 
 [node name="Building12" parent="buildings" node_paths=PackedStringArray("player_owner") instance=ExtResource("2_yljij")]
 position = Vector2(106, 91)
 player_owner = NodePath("../../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_pvbff")]
+position = Vector2(36, 40)
+
+[node name="Player2" parent="." instance=ExtResource("1_pvbff")]
+position = Vector2(1097, 589)
+player_num = 2
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="hit" from="Player2" to="." method="_on_player_2_hit"]

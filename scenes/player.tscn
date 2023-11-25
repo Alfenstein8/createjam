@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://7otgramulw64"]
+[gd_scene load_steps=7 format=3 uid="uid://7otgramulw64"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrbx4"]
-[ext_resource type="Texture2D" uid="uid://bkri378hb036r" path="res://1864053.png" id="2_nmku4"]
+[ext_resource type="Texture2D" uid="uid://b2drw3rkqt4vr" path="res://sprites/rex.jpeg" id="2_gw8su"]
+[ext_resource type="Texture2D" uid="uid://bit1tx2grn17" path="res://sprites/rumleskaft.jpeg" id="3_8qb6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2klo"]
 radius = 0.751665
@@ -9,17 +10,12 @@ radius = 0.751665
 [sub_resource type="CircleShape2D" id="CircleShape2D_lmbda"]
 radius = 92.7793
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jkqq7"]
-radius = 15.1327
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrdr0"]
+size = Vector2(69, 117)
 
 [node name="Player" type="StaticBody2D" groups=["player"]]
 position = Vector2(518, 314)
 script = ExtResource("1_mrbx4")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6, 3)
-scale = Vector2(0.100586, 0.100313)
-texture = ExtResource("2_nmku4")
 
 [node name="Player_hitbox" type="Area2D" parent="."]
 
@@ -33,7 +29,24 @@ shape = SubResource("CircleShape2D_p2klo")
 shape = SubResource("CircleShape2D_lmbda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_jkqq7")
+position = Vector2(3.5, 2.5)
+shape = SubResource("RectangleShape2D_lrdr0")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="rex" type="Sprite2D" parent="Sprites"]
+position = Vector2(6, 3)
+scale = Vector2(0.100586, 0.100313)
+texture = ExtResource("2_gw8su")
+region_enabled = true
+region_rect = Rect2(218.64, 342.466, 717.724, 1108.87)
+
+[node name="rumle" type="Sprite2D" parent="Sprites"]
+position = Vector2(6, 3)
+scale = Vector2(0.100586, 0.100313)
+texture = ExtResource("3_8qb6d")
+region_enabled = true
+region_rect = Rect2(349.365, 380.376, 581.018, 1074.69)
 
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Interact_range" to="." method="_on_interact_range_entered"]
