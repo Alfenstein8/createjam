@@ -3,7 +3,7 @@ var target:Vector2
 @export var movement_speed = 30
 @export var run_speed = 50
 var building
-enum mv_state {TARGET, IDLE, RUN}
+enum mv_state {TARGET, IDLE, RUN, FOLLOW}
 var state:mv_state = mv_state.TARGET
 var idle_radius:float = 10
 var idle_timer:float = 0
@@ -12,6 +12,7 @@ var idle_target:Vector2
 var player_owner:Node2D
 var player_follow:Node2D
 var run_dir:Vector2 = Vector2.ZERO
+var nearby_gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +27,8 @@ func _process(delta):
 			idle(delta)
 		mv_state.RUN:
 			move(position+run_dir,run_speed,delta)
-			
+		mv_state.FOLLOW:
+			move(player_follow.position,movement_speed,delta)
 	idle_timer -= delta
 
 func run(dir:Vector2):
@@ -44,3 +46,8 @@ func idle(delta):
 		idle_timer = idle_time
 		idle_target = Vector2(randf_range(target.x-idle_radius,target.x+idle_radius),randf_range(target.y-idle_radius,target.y+idle_radius))
 	position = position.move_toward(idle_target,movement_speed*delta)
+
+func follow_player(player):
+	player_follow = player
+	state = mv_state.FOLLOW
+	

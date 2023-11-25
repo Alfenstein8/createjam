@@ -20,6 +20,7 @@ offset_bottom = 316.0
 text = "GANG"
 
 [node name="quit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 346.0
 offset_right = 1057.0
