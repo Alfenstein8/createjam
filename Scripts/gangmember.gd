@@ -16,7 +16,8 @@ var nearby_gangmembers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if(player_owner.player_num == 1):
+		$Sprite2D.modulate = Color(0.4, 0.4, 0.8, 1)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
