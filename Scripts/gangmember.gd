@@ -33,7 +33,7 @@ func _process(delta):
 		mv_state.RUN:
 			move(position+run_dir,run_speed,delta)
 		mv_state.FOLLOW:
-			move(player_follow.position,movement_speed,delta)
+			move(player_follow.position,run_speed*4,delta)
 	
 	
 		

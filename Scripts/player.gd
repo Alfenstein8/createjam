@@ -27,7 +27,10 @@ func _process(delta):
 		if Input.is_action_pressed("p1_up"):
 			velocity.y -= 1
 		if Input.is_action_just_pressed("p1_shoot"):
-			shoot()
+			var pop_gang = gangmembers.pop_back()
+			if pop_gang != null:
+				pop_gang.queue_free()
+				shoot()
 		if Input.is_action_pressed("p1_interact"):
 			if (!buildings_in_range.is_empty()):
 				buildings_in_range[0].buy(self)
@@ -44,6 +47,9 @@ func _process(delta):
 		if Input.is_action_pressed("p2_up"):
 			velocity.y -= 1
 		if Input.is_action_just_pressed("p2_shoot"):
+			var pop_gang = gangmembers.pop_back()
+			if pop_gang != null:
+				pop_gang.queue_free()
 				shoot()
 		if Input.is_action_pressed("p2_interact"):
 			if (!buildings_in_range.is_empty()):
