@@ -80,6 +80,7 @@ func _on_interact_range_body_exited(body):
 		
 func shoot():
 	var new_bullet = bullet.instantiate()
+	new_bullet.player_owner = self
 	new_bullet.position = position
 	get_parent().add_child(new_bullet)
 	
