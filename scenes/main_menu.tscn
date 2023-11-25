@@ -27,5 +27,26 @@ offset_right = 1057.0
 offset_bottom = 592.0
 text = "Give up"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.131
+anchor_bottom = 0.086
+offset_left = 962.0
+offset_top = 128.0
+offset_right = 1102.09
+offset_bottom = 124.272
+rotation = -0.785397
+text = "This town is not big"
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 171.0
+offset_right = 1106.0
+offset_bottom = 243.0
+theme_override_font_sizes/font_size = 50
+text = "Pregnant Elsa makeup: The showdown !!1!!1!"
+
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
