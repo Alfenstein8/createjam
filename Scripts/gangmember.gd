@@ -21,29 +21,23 @@ func _ready():
 func _process(delta):
 	match state:
 		mv_state.TARGET:
-			move(delta);
+			move(target,movement_speed,delta);
 		mv_state.IDLE:
 			idle(delta)
 		mv_state.RUN:
-			run(delta)
+			move(position+run_dir,run_speed,delta)
 			
 	idle_timer -= delta
-
-func follow_player():
-	pass
 
 func run(dir:Vector2):
 	state = mv_state.RUN
 	run_dir = dir
 
-func run_in_dir():
-	position.x += run_speed * run_dir
-
 func go_to(new_target):
 	target = new_target
 
-func move(delta):
-	position = position.move_toward(target, movement_speed*delta)
+func move(mv_target:Vector2,speed:float,delta):
+	position = position.move_toward(mv_target, speed*delta)
 
 func idle(delta):
 	if(idle_timer < 0):
