@@ -2,6 +2,7 @@ extends Node2D
 
 # Speed of the player, pixels moved
 @export var speed = 400
+@export var player_num = 1
 # Random atm, should be changed when variable is known
 var screen_size
 signal hit
@@ -15,21 +16,38 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("p1_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("p1_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("p1_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("p1_up"):
-		velocity.y -= 1
-	if (Input.is_action_pressed("p1_interact")):
-		if (!buildings_in_range.is_empty()):
-			buildings_in_range[0].buy(self)
-	if (Input.is_action_pressed("p1_follow")):
-		if (!buildings_in_range.is_empty()):
-			buildings_in_range[0].pick_up_gangmembers(self)
-
+	if player_num == 1:
+		if Input.is_action_pressed("p1_right"):
+			velocity.x += 1
+		if Input.is_action_pressed("p1_left"):
+			velocity.x -= 1
+		if Input.is_action_pressed("p1_down"):
+			velocity.y += 1
+		if Input.is_action_pressed("p1_up"):
+			velocity.y -= 1
+		#if Input.is_action_pressed("p1_shoot")
+		if Input.is_action_pressed("p1_interact"):
+			if (!buildings_in_range.is_empty()):
+				buildings_in_range[0].buy(self)
+		if Input.is_action_pressed("p1_follow"):
+			if !buildings_in_range.is_empty():
+				buildings_in_range[0].pick_up_gangmembers(self)
+	if player_num == 2:
+		if Input.is_action_pressed("p2_right"):
+			velocity.x += 1
+		if Input.is_action_pressed("p2_left"):
+			velocity.x -= 1
+		if Input.is_action_pressed("p2_down"):
+			velocity.y += 1
+		if Input.is_action_pressed("p2_up"):
+			velocity.y -= 1
+			#if Input.is_action_pressed("p2_shoot")
+		if Input.is_action_pressed("p2_interact"):
+			if (!buildings_in_range.is_empty()):
+				buildings_in_range[0].buy(self)
+		if Input.is_action_pressed("p2_follow"):
+			if !buildings_in_range.is_empty():
+				buildings_in_range[0].pick_up_gangmembers(self)
 
 	position += velocity * delta * speed
 	position = position.clamp(Vector2.ZERO, screen_size)

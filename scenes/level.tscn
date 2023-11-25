@@ -10,6 +10,7 @@ position = Vector2(289, 260)
 
 [node name="Player2" parent="." instance=ExtResource("1_pvbff")]
 position = Vector2(523, 273)
+player_num = 2
 
 [node name="buildings" type="Node2D" parent="."]
 
