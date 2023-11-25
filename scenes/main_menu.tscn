@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6qhk48tu5y4"]
+
+[ext_resource type="Script" path="res://Scripts/Main menu.gd" id="1_q04rq"]
+
+[node name="Main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q04rq")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 257.0
+offset_right = 658.0
+offset_bottom = 316.0
+text = "GANG"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 136.0
+offset_top = 346.0
+offset_right = 1057.0
+offset_bottom = 592.0
+text = "Give up"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
