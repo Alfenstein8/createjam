@@ -9,6 +9,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Winning label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 291.0
 offset_right = 801.0
