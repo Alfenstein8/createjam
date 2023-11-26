@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7qu7xoo0f1rt"]
+[gd_scene load_steps=9 format=3 uid="uid://c7qu7xoo0f1rt"]
 
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_nxnup"]
 [ext_resource type="Texture2D" uid="uid://ydsicw3ty3q2" path="res://sprites/building1.jpeg" id="2_cs5t2"]
+[ext_resource type="Texture2D" uid="uid://thdqi8ga4fpk" path="res://sprites/by ny.png" id="2_mscn8"]
 [ext_resource type="Texture2D" uid="uid://c8eo4jko1hrvw" path="res://sprites/building2.jpeg" id="3_hv7p0"]
+[ext_resource type="Texture2D" uid="uid://dv8lfbpwmo02h" path="res://sprites/Grav ny.png" id="3_pt0da"]
 [ext_resource type="Texture2D" uid="uid://dvv363is6ylce" path="res://sprites/building3.jpeg" id="4_imr3b"]
 [ext_resource type="Texture2D" uid="uid://cs17vk87iiyo2" path="res://sprites/building4.jpeg" id="5_ru1h5"]
 
@@ -11,6 +13,7 @@ size = Vector2(79, 73)
 
 [node name="Building" type="StaticBody2D" groups=["building"]]
 position = Vector2(515, 264)
+scale = Vector2(1.3, 1.3)
 script = ExtResource("1_nxnup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,6 +21,19 @@ position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_uc4lc")
 
 [node name="sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D5" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("2_mscn8")
+region_rect = Rect2(144.3, 566.454, 892.412, 622.79)
+
+[node name="Sprite2D6" type="Sprite2D" parent="sprites"]
+visible = false
+scale = Vector2(0.103004, 0.103004)
+texture = ExtResource("3_pt0da")
+region_enabled = true
+region_rect = Rect2(31.3729, -11.8125, 759.967, 593.967)
 
 [node name="Sprite2D" type="Sprite2D" parent="sprites"]
 visible = false

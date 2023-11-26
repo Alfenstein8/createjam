@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://7otgramulw64"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mrbx4"]
-[ext_resource type="Texture2D" uid="uid://b2drw3rkqt4vr" path="res://sprites/rex.jpeg" id="2_gw8su"]
-[ext_resource type="Texture2D" uid="uid://bit1tx2grn17" path="res://sprites/rumleskaft.jpeg" id="3_8qb6d"]
+[ext_resource type="Texture2D" uid="uid://c653exmtl3rvb" path="res://sprites/Pregnant ny.png" id="2_dmoys"]
+[ext_resource type="Texture2D" uid="uid://mciv0s6qguh1" path="res://sprites/Rumleskaft ny.png" id="3_iqg2c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2klo"]
 radius = 0.751665
@@ -15,6 +15,7 @@ size = Vector2(69, 117)
 
 [node name="Player" type="StaticBody2D" groups=["player"]]
 position = Vector2(518, 314)
+scale = Vector2(0.795, 0.795)
 script = ExtResource("1_mrbx4")
 
 [node name="Player_hitbox" type="Area2D" parent="."]
@@ -33,20 +34,23 @@ position = Vector2(3.5, 2.5)
 shape = SubResource("RectangleShape2D_lrdr0")
 
 [node name="Sprites" type="Node2D" parent="."]
+position = Vector2(-5.33, -3.83)
+scale = Vector2(1.73, 1.73)
 
 [node name="rex" type="Sprite2D" parent="Sprites"]
 position = Vector2(6, 3)
 scale = Vector2(0.100586, 0.100313)
-texture = ExtResource("2_gw8su")
+texture = ExtResource("2_dmoys")
 region_enabled = true
-region_rect = Rect2(218.64, 342.466, 717.724, 1108.87)
+region_rect = Rect2(119.408, -3.9641, 518.495, 706.717)
 
 [node name="rumle" type="Sprite2D" parent="Sprites"]
 position = Vector2(6, 3)
 scale = Vector2(0.100586, 0.100313)
-texture = ExtResource("3_8qb6d")
+texture = ExtResource("3_iqg2c")
+flip_h = true
 region_enabled = true
-region_rect = Rect2(349.365, 380.376, 581.018, 1074.69)
+region_rect = Rect2(233.684, 184.269, 317.251, 615.074)
 
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Interact_range" to="." method="_on_interact_range_entered"]

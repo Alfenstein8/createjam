@@ -10,7 +10,7 @@ var gangmembers = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	enemy_scene = preload("res://scenes/gangmember.tscn")
-	$sprites.get_child(randi_range(0,3)).show()
+	$sprites.get_child(randi_range(0,1)).show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
